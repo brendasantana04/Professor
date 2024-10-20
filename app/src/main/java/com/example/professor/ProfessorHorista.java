@@ -1,4 +1,5 @@
 package com.example.professor;
+
 public class ProfessorHorista extends Professor {
     private int horasAula;
     private double valorHoraAula;

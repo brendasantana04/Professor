@@ -7,36 +7,68 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/*
- *@author:<Brenda>
- *@ra:<1110482313042>
- */
-
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editNome, editMatricula, editIdade;
+    private EditText editNome, editHorasAula, editValorHora, editAnosInstituicao;
     private TextView textResultado;
-    private Button buttonCalcular;
+    private Button buttonCalcularTitular, buttonCalcularHorista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Inicializando os elementos da interface
         editNome = findViewById(R.id.editNome);
-        editMatricula = findViewById(R.id.editMatricula);
-        editIdade = findViewById(R.id.editIdade);
+        editHorasAula = findViewById(R.id.editHorasAula);
+        editValorHora = findViewById(R.id.editValorHora);
+        editAnosInstituicao = findViewById(R.id.editAnosInstituicao);
         textResultado = findViewById(R.id.textResultado);
-        buttonCalcular = findViewById(R.id.buttonCalcular);
+        buttonCalcularTitular = findViewById(R.id.buttonCalcularTitular);
+        buttonCalcularHorista = findViewById(R.id.buttonCalcularHorista);
 
-        buttonCalcular.setOnClickListener(new View.OnClickListener() {
+        // Calcular salário do Professor Titular
+        buttonCalcularTitular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProfessorTitular professorTitular = new ProfessorTitular(10, 5000.0);
+                // Pegando o valor inserido para anos na instituição
+                String anosInstituicaoStr = editAnosInstituicao.getText().toString();
 
-                double salario = professorTitular.calcSalario();
+                if (!anosInstituicaoStr.isEmpty()) {
+                    int anosInstituicao = Integer.parseInt(anosInstituicaoStr);
 
-                textResultado.setText("Salário Calculado: R$ " + salario);
+                    // Definindo um salário base qualquer
+                    double salarioBase = 5000.0;
+
+                    // Instanciando o professor titular e calculando o salário
+                    ProfessorTitular professorTitular = new ProfessorTitular(anosInstituicao, salarioBase);
+                    double salario = professorTitular.calcSalario();
+
+                    // Exibindo o resultado
+                    textResultado.setText("Salário Titular: R$ " + salario);
+                }
+            }
+        });
+
+        // Calcular salário do Professor Horista
+        buttonCalcularHorista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Pegando os valores inseridos para horas e valor por hora
+                String horasAulaStr = editHorasAula.getText().toString();
+                String valorHoraStr = editValorHora.getText().toString();
+
+                if (!horasAulaStr.isEmpty() && !valorHoraStr.isEmpty()) {
+                    int horasAula = Integer.parseInt(horasAulaStr);
+                    double valorHora = Double.parseDouble(valorHoraStr);
+
+                    // Instanciando o professor horista e calculando o salário
+                    ProfessorHorista professorHorista = new ProfessorHorista(horasAula, valorHora);
+                    double salario = professorHorista.calcSalario();
+
+                    // Exibindo o resultado
+                    textResultado.setText("Salário Horista: R$ " + salario);
+                }
             }
         });
     }

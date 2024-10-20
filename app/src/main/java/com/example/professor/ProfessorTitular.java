@@ -1,11 +1,12 @@
 package com.example.professor;
+
 public class ProfessorTitular extends Professor {
     private int anosInstituicao;
-    private double salario;
+    private double salarioBase;
 
-    public ProfessorTitular(int anosInstituicao, double salario) {
+    public ProfessorTitular(int anosInstituicao, double salarioBase) {
         this.anosInstituicao = anosInstituicao;
-        this.salario = salario;
+        this.salarioBase = salarioBase;
     }
 
     public int getAnosInstituicao() {
@@ -16,17 +17,17 @@ public class ProfessorTitular extends Professor {
         this.anosInstituicao = anosInstituicao;
     }
 
-    public double getSalario() {
-        return salario;
+    public double getSalarioBase() {
+        return salarioBase;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
     }
 
     @Override
     public double calcSalario() {
         int incremento = anosInstituicao / 5;
-        return salario * (1 + (incremento * 0.05));
+        return salarioBase * (1 + (incremento * 0.05));
     }
 }

@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/textNome"
         android:layout_width="0dp"
@@ -17,85 +16,103 @@
         android:layout_marginTop="16dp"
         android:textSize="18sp" />
 
-
     <EditText
         android:id="@+id/editNome"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         app:layout_constraintTop_toBottomOf="@+id/textNome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="Digite o nome"
         android:layout_marginTop="8dp"/>
 
-
     <TextView
-        android:id="@+id/textMatricula"
+        android:id="@+id/textHorasAula"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Matrícula"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Horas de Aula"
         app:layout_constraintTop_toBottomOf="@+id/editNome"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp" />
-
-
-    <EditText
-        android:id="@+id/editMatricula"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textMatricula"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Digite a matrícula"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="16dp" />
 
+    <EditText
+        android:id="@+id/editHorasAula"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/textHorasAula"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Digite as horas trabalhadas"
+        android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/textIdade"
+        android:id="@+id/textValorHora"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Idade"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Valor por Hora"
+        app:layout_constraintTop_toBottomOf="@+id/editHorasAula"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMatricula"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
     <EditText
-        android:id="@+id/editIdade"
+        android:id="@+id/editValorHora"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textIdade"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/textValorHora"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Digite a idade"
+        android:hint="Digite o valor por hora"
         android:layout_marginTop="8dp"/>
 
+    <TextView
+        android:id="@+id/textAnosInstituicao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Anos na Instituição"
+        app:layout_constraintTop_toBottomOf="@+id/editValorHora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editAnosInstituicao"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/textAnosInstituicao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Digite os anos na instituição"
+        android:layout_marginTop="8dp"/>
 
     <Button
-        android:id="@+id/buttonCalcular"
+        android:id="@+id/buttonCalcularTitular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcular Salário"
-        app:layout_constraintTop_toBottomOf="@+id/editIdade"
+        android:text="Calcular Titular"
+        app:layout_constraintTop_toBottomOf="@+id/editAnosInstituicao"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp" />
 
+    <Button
+        android:id="@+id/buttonCalcularHorista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular Horista"
+        app:layout_constraintTop_toBottomOf="@+id/editAnosInstituicao"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
     <TextView
         android:id="@+id/textResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resultado: "
-        app:layout_constraintTop_toBottomOf="@+id/buttonCalcular"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalcularTitular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
-
 
     <TextView
         android:id="@+id/textView"
@@ -106,4 +123,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="32dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
